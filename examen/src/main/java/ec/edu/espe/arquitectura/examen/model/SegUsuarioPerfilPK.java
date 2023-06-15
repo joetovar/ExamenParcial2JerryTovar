@@ -1,34 +1,32 @@
 package ec.edu.espe.arquitectura.examen.model;
 
+import java.io.Serializable;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Version;
+import jakarta.persistence.Embeddable;
 
-
-@Entity
-@Table(name = "SEG_PREFIL")
-public class SegPerfil {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+@Embeddable
+public class SegUsuarioPerfilPK implements Serializable {
+    
+    @Column(name = "COD_USUARIO", nullable = false)
+    private Integer codigoUsuario;
     @Column(name = "COD_PERFIL", length = 8, nullable = false)
     private String codigoPerfil;
-    @Column(name = "NOMBRE", length = 100)
-    private String nombre;
-
-    @Version
-    @Column(name = "VERSION", nullable = false)
-    private Integer version;
-
-    public SegPerfil() {
+    
+    public SegUsuarioPerfilPK() {
     }
 
-    public SegPerfil(String codigoPerfil) {
+    public SegUsuarioPerfilPK(Integer codigoUsuario, String codigoPerfil) {
+        this.codigoUsuario = codigoUsuario;
         this.codigoPerfil = codigoPerfil;
+    }
+
+    public Integer getCodigoUsuario() {
+        return codigoUsuario;
+    }
+
+    public void setCodigoUsuario(Integer codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
     }
 
     public String getCodigoPerfil() {
@@ -39,28 +37,11 @@ public class SegPerfil {
         this.codigoPerfil = codigoPerfil;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    
-
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((codigoUsuario == null) ? 0 : codigoUsuario.hashCode());
         result = prime * result + ((codigoPerfil == null) ? 0 : codigoPerfil.hashCode());
         return result;
     }
@@ -73,7 +54,12 @@ public class SegPerfil {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        SegPerfil other = (SegPerfil) obj;
+        SegUsuarioPerfilPK other = (SegUsuarioPerfilPK) obj;
+        if (codigoUsuario == null) {
+            if (other.codigoUsuario != null)
+                return false;
+        } else if (!codigoUsuario.equals(other.codigoUsuario))
+            return false;
         if (codigoPerfil == null) {
             if (other.codigoPerfil != null)
                 return false;
@@ -84,7 +70,8 @@ public class SegPerfil {
 
     @Override
     public String toString() {
-        return "SegPerfil [codigo=" + codigoPerfil + ", nombre=" + nombre + ", version=" + version + "]";
+        return "SegUsuarioPerfilPK [codigoUsuario=" + codigoUsuario + ", codigoPerfil=" + codigoPerfil + "]";
     }
+
     
 }
