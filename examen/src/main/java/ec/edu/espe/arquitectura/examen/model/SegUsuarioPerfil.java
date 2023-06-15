@@ -18,7 +18,7 @@ public class SegUsuarioPerfil implements Serializable{
     @EmbeddedId
     private SegUsuarioPerfilPK pk;
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "ES_ACTIVO", length = 3, nullable = false)
+    @Column(name = "ES_ACTIVO", nullable = false)
     private Boolean esActivo;
     @Column(name = "FECHA_CREACION", nullable = false)
     private Date fechaCreacion;
