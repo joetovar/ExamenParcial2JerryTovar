@@ -10,6 +10,7 @@ import ec.edu.espe.arquitectura.examen.model.SegUsuario;
 import ec.edu.espe.arquitectura.examen.repository.SegUsuarioRepository;
 import ec.edu.espe.arquitectura.examen.exception.CreateException;
 
+@Service
 public class UsuarioService {
     
     private final SegUsuarioRepository segUsuarioRepository;
