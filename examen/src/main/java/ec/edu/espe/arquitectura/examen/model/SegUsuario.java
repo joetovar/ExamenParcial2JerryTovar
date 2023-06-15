@@ -17,7 +17,7 @@ public class SegUsuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "COD_USUARIO", length = 8, nullable = false)
-    private Integer codigo;
+    private Integer codigoUsuario;
     @Column(name = "MAIL", length = 128, nullable = false)
     private String mail;
     @Column(name = "CLAVE", length = 64, nullable = false)
@@ -37,16 +37,16 @@ public class SegUsuario {
     public SegUsuario() {
     }
 
-    public SegUsuario(Integer codigo) {
-        this.codigo = codigo;
+    public SegUsuario(Integer codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
     }
 
-    public Integer getCodigo() {
-        return codigo;
+    public Integer getCodigoUsuario() {
+        return codigoUsuario;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setCodigoUsuario(Integer codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
     }
 
     public String getMail() {
@@ -109,7 +109,7 @@ public class SegUsuario {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+        result = prime * result + ((codigoUsuario == null) ? 0 : codigoUsuario.hashCode());
         return result;
     }
 
@@ -122,10 +122,10 @@ public class SegUsuario {
         if (getClass() != obj.getClass())
             return false;
         SegUsuario other = (SegUsuario) obj;
-        if (codigo == null) {
-            if (other.codigo != null)
+        if (codigoUsuario == null) {
+            if (other.codigoUsuario != null)
                 return false;
-        } else if (!codigo.equals(other.codigo))
+        } else if (!codigoUsuario.equals(other.codigoUsuario))
             return false;
         return true;
     }
