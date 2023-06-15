@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import ec.edu.espe.arquitectura.examen.model.SegPerfil;
 
-@Repository
+
 public interface SegPerfilRepository extends JpaRepository<SegPerfil, String>{
 
     List<SegPerfil> findByNombreOrderByNombre(String nombre);

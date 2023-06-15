@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import ec.edu.espe.arquitectura.examen.model.SegUsuario;
 
+
 public interface SegUsuarioRepository extends JpaRepository<SegUsuario, Integer>{
     
     List<SegUsuario> findByNombreOrderByNombre(String nombre);
