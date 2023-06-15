@@ -29,6 +29,6 @@ public class UsuarioService {
     }
 
     public Optional<SegUsuario> obtenerPorMail(String mail) {
-        return this.segUsuarioRepository.findOne(mail);
+        return this.segUsuarioRepository.findAll(mail);
     }
 }
